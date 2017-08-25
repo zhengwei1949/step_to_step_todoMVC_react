@@ -22,7 +22,6 @@
 			<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
 		</footer>
 		<!-- Scripts here. Don't remove ↓ -->
-		<script src="node_modules/todomvc-common/base.js"></script>
 		<script src="https://unpkg.com/react@latest/dist/react.js"></script>
 		<script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
 		<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
@@ -80,12 +79,19 @@
 					</footer>;
 				}
 			})
+
+			var TodoApp = React.createClass({
+				render:function(){
+					return <div>
+							<MyHeader />
+							<MyMain />
+							<MyFooter />
+							</div>
+				}
+			})
+
 			ReactDOM.render(
-				<div>
-					<MyHeader />
-					<MyMain />
-					<MyFooter />
-				</div>,
+				<TodoApp />,
 				document.getElementById('myApp')
 			);
 		</script>
