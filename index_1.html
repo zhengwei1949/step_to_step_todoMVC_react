@@ -24,14 +24,17 @@
         <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
         <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
         <script type="text/babel">
-            var Todos = React.createClass({
+            var TodoHead = React.createClass({
                 render:function(){
-                    return <section className="todoapp">
-                <header className="header">
+                    return <header className="header">
                     <h1>todos</h1>
                     <input className="new-todo" placeholder="What needs to be done?" autoFocus />
                 </header>
-                <section className="main">
+                }
+            });
+            var TodoBody = React.createClass({
+                render:function(){
+                    return <section className="main">
                     <input id="toggle-all" className="toggle-all" type="checkbox" />
                     <label htmlFor="toggle-all">Mark all as complete</label>
                     <ul className="todo-list">
@@ -53,7 +56,11 @@
                         </li>
                     </ul>
                 </section>
-                <footer className="footer">
+                }
+            });
+            var TodoFooter = React.createClass({
+                render:function(){
+                    return <footer className="footer">
                     <span className="todo-count"><strong>0</strong> item left</span>
                     <ul className="filters">
                         <li>
@@ -68,7 +75,17 @@
                     </ul>
                     <button className="clear-completed">Clear completed</button>
                 </footer>
-            </section>
+                }
+            });
+            var Todos = React.createClass({
+                render:function(){
+                    return <section className="todoapp">
+                        <TodoHead />
+                        <TodoBody />
+                        <TodoFooter />
+                
+                
+                        </section>
                 }
             })
 
